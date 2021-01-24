@@ -1,0 +1,13 @@
+.Mypage {
+    color: #353866;
+    font-weight: bold;
+    font-size: x-large;
+    margin-left: 10px;
+}
+.box {
+    padding:10px;
+    border: 2px solid silver;
+    width: 30%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}

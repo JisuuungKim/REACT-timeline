@@ -1,0 +1,15 @@
+.title{
+    background-color: #AAABD3;
+    padding:5px;
+    color: #F8FAFF;
+}
+
+h1{
+    display: inline-block;
+}
+
+h3 {
+    display: inline-block;
+    float: right;
+    margin-right: 20px;
+}
