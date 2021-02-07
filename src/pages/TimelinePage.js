@@ -17,17 +17,19 @@ export function TimelinePage(props){
     }
 
     async function writeBtnClick(){
-        console.log(inputText, inputTextarea);
         await createFeed(inputText, inputTextarea);
         setFeeds(await readFeeds());
     }
 
     useEffect(()=> {
+        if (window.sessionStorage.getItem("token")) {
         const server = async () => {
             setFeeds(await readFeeds());
-            console.log(feeds)
         };
-        server();
+        server(); }
+        else {
+            alert("로그인을 해주세요.");
+        }
     },[])
 
     return <>

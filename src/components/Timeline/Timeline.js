@@ -1,9 +1,9 @@
 import React from 'react';
 import {Feed} from './Feed';
+import { Link } from 'react-router-dom'
 
 export function Timeline(props){
-    console.log(props);
     return <>
-        {props.feeds.map((feed)=> <Feed name={feed.name} body={feed.body}/>)}
+        {props.feeds && props.feeds.map((feed)=> <Link to ={"timelinedetail/"+feed.id}><Feed name={feed.name} body={feed.body}/></Link>)}
     </>;
 }

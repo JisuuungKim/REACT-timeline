@@ -1,6 +1,6 @@
 
 export async function createToken(id, pw) {
-        const res = await fetch('http://ec2-52-78-131-251.ap-northeast-2.compute.amazonaws.com/api-token-auth/', {
+        const res = await fetch('https://react-js-sample-api.kmuwink.net/api-token-auth/', {
             method: 'post',
             headers: {'Content-Type' : 'application/json',
             },
@@ -13,7 +13,7 @@ export async function createToken(id, pw) {
     };
 
 export async function createID(id, email, pw, lastN, firstN) {
-    const res = await fetch('http://ec2-52-78-131-251.ap-northeast-2.compute.amazonaws.com/user/', {
+    const res = await fetch('https://react-js-sample-api.kmuwink.net/user/', {
         method: 'post',
         headers: {'Content-Type' : 'application/json',
         },
@@ -29,7 +29,7 @@ export async function createID(id, email, pw, lastN, firstN) {
 };
 
 export async function readID() {
-    const readResult = await fetch('http://ec2-52-78-131-251.ap-northeast-2.compute.amazonaws.com/user/',{
+    const readResult = await fetch('https://react-js-sample-api.kmuwink.net/user/',{
         method:'get'
     })
     const readJson = await readResult.json();

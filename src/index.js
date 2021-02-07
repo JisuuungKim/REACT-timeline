@@ -3,47 +3,41 @@ import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
 import {TimelinePage} from "./pages/TimelinePage";
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
-import {Header} from "./components/Timeline/Header"
-import {Main} from "./pages/Main";
-import {Mypage} from "./pages/Mypage";
 import {Loginpage} from "./pages/Loginpage";
+import {Header} from "./components/Timeline/Header";
+import {Hello} from "./pages/Hello";
+import {Mypage} from "./pages/Mypage";
+import {TimelineDetail} from "./pages/TimelineDetail";
 
 function App() {
-    const [onlogin, setOnlogin] = useState(false)
-    const ON = () => {
-        window.sessionStorage.setItem('login',true);
-        setOnlogin(window.sessionStorage.getItem('login'));
-    }
+
     const OFF = () => {
         window.sessionStorage.removeItem('username')
         window.sessionStorage.removeItem('password')
         window.sessionStorage.setItem('login',false);
-        setOnlogin(window.sessionStorage.getItem('login'));
 
     }
 
     return<>
-        <Header
-            onlogin = {onlogin}
+        {window.sessionStorage.getItem("login")?(<Header
             OFF = {OFF}
-        />
+        />):null}
         <Switch>
-            <Route exact path="/"><Main/></Route>
-        <Route path="/mypage"><Mypage/></Route>
-        <Route path="/timeline"><TimelinePage/></Route>
-            <Route path="/login"><Loginpage
-                ON = {ON}
-                OFF = {OFF}
-                onlogin = {onlogin}
-            /></Route>
-        <Route path="/">Not Found</Route>
+            <Route exact path="/"><Loginpage/></Route>
+            <Route path="/home"><Hello/></Route>
+            <Route path="/mypage"><Mypage/></Route>
+            <Route path="/timelinedetail/:id"><TimelineDetail/></Route>
+            <Route path="/timeline"><TimelinePage/></Route>
+            <Route path="/">Not Found</Route>
         </Switch>
         </>
 }
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter><App /></BrowserRouter>
+    <BrowserRouter>
+        <App />
+    </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );

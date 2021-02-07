@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function Main(props) {
+export function Hello(props) {
     return <>
         <p>Hello!</p>
 
